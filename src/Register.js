@@ -1,37 +1,36 @@
 import React,{useState, useEffect} from 'react';
-const url = "http://127.0.0.1:8000/api/register";
+import {useHistory} from 'react-router-dom';
+
 const Register = () => {
+    const history = useHistory();
+    useEffect(() =>{
+        if(localStorage.getItem('user-info')){
+            history.push('./add');
+        }
+    },[])
     const [name,setName] =useState('');
     const [email,setEmail] =useState('');
     const [password,setPassword] =useState('');
-
+   
 
   async function handleSubmit(){
     
-     let data ={name,password,email}
-     const config = {
-        method: 'POST',
+     let item ={name,password,email}
+    
+    let result = await fetch("http://127.0.0.1:8000/api/register",{
+         method: 'POST',
         headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data)
-    }
-    const result = await fetch(url, config)
-     
-    //  let item ={name,password,email}
-    // let result = await fetch("http://127.0.0.1:8000/api/register",{
-    //      method: 'POST',
-    //      headers: {
-    //          "Content-Type" : "application/json",
-    //          "Accept" : "application/json",
+            "Content-Type" : "application/json",
+            "Accept" : "application/json",
              
-    //      },
-    //      body: JSON.stringify(item)
+         },
+         body: JSON.stringify(item)
 
-    //  });
-    //  result = await result.json();
-    //  console.log("result",result);
+     });
+     result = await result.json();
+    localStorage.setItem("user-info",JSON.stringify(result));
+    history.push("/add");
+  
     }
 
 
