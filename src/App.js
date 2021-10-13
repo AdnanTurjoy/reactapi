@@ -12,12 +12,14 @@ import Login from './Login';
 import AddProduct from './AddProduct';
 import UpdateProduct from './UpdateProduct';
 import Register from './Register';
+import ProductList from './ProductList';
 
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
+      
       <Header/>
       <h1>E-commerce</h1>
       <Route path='/login'>
@@ -32,6 +34,10 @@ function App() {
       <Route path='/Register'>
          <Register/>
       </Route>
+      <Route path='/'>
+        <ProductList/>
+      </Route>
+      
       </BrowserRouter>
       
     </div>

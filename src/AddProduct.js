@@ -5,7 +5,8 @@ const AddProduct = () => {
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [file, setFile] = useState("");
-  async function addProduct() {
+  async function addProduct(e) {
+    e.preventDefault();
     console.warn(name, description, price, file);
     const formData = new FormData();
     formData.append("name", name);
