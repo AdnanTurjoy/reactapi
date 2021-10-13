@@ -12,7 +12,7 @@ import Login from './Login';
 import AddProduct from './AddProduct';
 import UpdateProduct from './UpdateProduct';
 import Register from './Register';
-import Protected from './Protected';
+
 
 function App() {
   return (
@@ -24,10 +24,10 @@ function App() {
          <Login/>
       </Route>
       <Route path='/add'>
-         <Protected cmp={AddProduct}/>
+         <AddProduct/>
       </Route>
       <Route path='/updateProduct'>
-         <Protected cmp={UpdateProduct}/>
+         <UpdateProduct/>
       </Route>
       <Route path='/Register'>
          <Register/>

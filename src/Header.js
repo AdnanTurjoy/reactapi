@@ -28,7 +28,7 @@ const Header = () => {
           </Nav>
         </Container>
         <Nav>
-          <NavDropdown title={user.name}>
+          <NavDropdown title="user.name">
               <NavDropdown.Item>Profile</NavDropdown.Item>
               <NavDropdown.Item onClick={logout}>Logout</NavDropdown.Item>
 
