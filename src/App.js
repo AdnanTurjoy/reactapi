@@ -38,7 +38,10 @@ function App() {
       <Route path='/singleproduct/:id' children={<SingleProduct/>}>
          
       </Route>
-      <Route path='/'>
+      <Route path='/update/:id' children={<UpdateProduct/>}>
+      <UpdateProduct/>
+      </Route>
+      <Route path='/product'>
         <ProductList/>
       </Route>
       

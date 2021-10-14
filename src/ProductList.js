@@ -44,7 +44,8 @@ const ProductList = () => {
                 <td>{item.description}</td>
                 <td>{item.price}</td>
                 <td><Button onClick={()=>handleDelete(item.id)} size="sm" variant="danger">Delete</Button>
-                  <Button ><Link to={"/singleproduct/"+item.id}>View</Link></Button>
+                  <Link to={"/singleproduct/"+item.id}><Button variant="success">View</Button></Link>
+                   <Link to={"/update/"+item.id}><Button variant="info">Update</Button></Link>
                   
                  </td>
                 
