@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link  } from "react-router-dom";
 import axios from "axios";
 import {Table,Button} from 'react-bootstrap'
 const ProductList = () => {
@@ -42,7 +43,11 @@ const ProductList = () => {
     height: "120px"}} src={"http://127.0.0.1:8000/images/"+item.file_path}/></td>
                 <td>{item.description}</td>
                 <td>{item.price}</td>
-                <td><Button onClick={()=>handleDelete(item.id)} size="sm" variant="danger">Delete</Button> </td>
+                <td><Button onClick={()=>handleDelete(item.id)} size="sm" variant="danger">Delete</Button>
+                  <Button ><Link to={"/singleproduct/"+item.id}>View</Link></Button>
+                  
+                 </td>
+                
               </tr>
               )
           }

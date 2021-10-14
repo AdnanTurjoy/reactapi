@@ -13,6 +13,7 @@ import AddProduct from './AddProduct';
 import UpdateProduct from './UpdateProduct';
 import Register from './Register';
 import ProductList from './ProductList';
+import SingleProduct from './SingleProduct';
 
 
 function App() {
@@ -33,6 +34,9 @@ function App() {
       </Route>
       <Route path='/Register'>
          <Register/>
+      </Route>
+      <Route path='/singleproduct/:id' children={<SingleProduct/>}>
+         
       </Route>
       <Route path='/'>
         <ProductList/>
