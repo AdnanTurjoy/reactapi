@@ -5,8 +5,10 @@ const AddProduct = () => {
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [file, setFile] = useState("");
+   
+
   async function addProduct(e) {
-    e.preventDefault();
+    e.preventDefault()
     console.warn(name, description, price, file);
     const formData = new FormData();
     formData.append("name", name);
@@ -16,10 +18,14 @@ const AddProduct = () => {
     
   
 
-    axios.post('http://localhost:8000/api/addproduct',formData).then((res) => console.log(res.data))
-    .catch((err) => console.log(err));
-   
+    let result = await fetch("http://localhost:8000/api/addproduct",{
+      method: "POST",
+      body: formData,
+    });
+    alert("Product added successfully")   
   }
+
+  
   return (
     <div className="col-sm-6 offset-sm-3">
       <br />
@@ -58,7 +64,7 @@ const AddProduct = () => {
       />
       <br />
       <button type="submit" onClick={addProduct} className="btn btn-primary">
-        Sign Up
+        Add Product
       </button>
     </div>
   );

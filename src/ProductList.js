@@ -1,14 +1,22 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import {Table} from 'react-bootstrap'
+import {Table,Button} from 'react-bootstrap'
 const ProductList = () => {
   const [data, setData] = useState([]);
-  useEffect(async () => {
-    const response = await fetch('http://127.0.0.1:8000/api/list');
-        const items = await response.json();
-        setData(items);
+  useEffect( async () => {
+    getData();
   }, []);
-  console.log(data);
+  const handleDelete = async(id)=>{
+    console.log(id);
+    await axios.delete('http://127.0.0.1:8000/api/delete/'+id);
+    getData();
+  }
+  const getData = async ()=>{
+    const response = await fetch('http://127.0.0.1:8000/api/list');
+    const items = await response.json();
+    setData(items);
+  }
+  //console.log(data);
   return (
     <div>
       <h1>Product List</h1>
@@ -21,6 +29,7 @@ const ProductList = () => {
             <th> Image</th>
             <th>Description</th>
             <th>Price</th>
+            <th>Opearation</th>
           </tr>
         </thead>
         <tbody>
@@ -33,6 +42,7 @@ const ProductList = () => {
     height: "120px"}} src={"http://127.0.0.1:8000/images/"+item.file_path}/></td>
                 <td>{item.description}</td>
                 <td>{item.price}</td>
+                <td><Button onClick={()=>handleDelete(item.id)} size="sm" variant="danger">Delete</Button> </td>
               </tr>
               )
           }
