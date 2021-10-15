@@ -18,7 +18,9 @@ const Header = () => {
               <>
                 <Link  to="/product">Product List</Link>
                 <Link to="/add">Add Product</Link>
-                <Link to="/update/:id">Update Product</Link>
+                <Link to="/update">Update Product</Link>
+                <Link to="/search">Search Product</Link>
+
               </>
             ) : (
               <>

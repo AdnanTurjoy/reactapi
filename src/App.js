@@ -14,6 +14,7 @@ import UpdateProduct from './UpdateProduct';
 import Register from './Register';
 import ProductList from './ProductList';
 import SingleProduct from './SingleProduct';
+import SearchProduct from './SearchProduct';
 
 
 function App() {
@@ -41,9 +42,13 @@ function App() {
       <Route path='/update/:id' children={<UpdateProduct/>}>
       <UpdateProduct/>
       </Route>
+      <Route path='/search' children={<SearchProduct/>}>
+        <SearchProduct/>
+      </Route>
       <Route path='/product'>
         <ProductList/>
       </Route>
+
       
       </BrowserRouter>
       
