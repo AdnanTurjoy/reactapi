@@ -44,7 +44,7 @@ const SingleProduct = () => {
         </tbody>
       </Table>
 
-
+      <Link to="/product"><Button variant="info" className="btn btn-sm m-2">Back</Button></Link>
       </div>
 
      );

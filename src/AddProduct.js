@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import { Link  } from "react-router-dom";
+import { Link,useHistory } from "react-router-dom";
 import axios from "axios";
 const AddProduct = () => {
+  let history = useHistory();
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
@@ -23,7 +24,7 @@ const AddProduct = () => {
       method: "POST",
       body: formData,
     });
-    alert("Product added successfully")   
+    history.push('/product')
   }
 
   

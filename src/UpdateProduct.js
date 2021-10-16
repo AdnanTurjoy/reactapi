@@ -36,7 +36,7 @@ const UpdateProduct = () => {
         body: formData,
       }
     );
-    alert("Product updated successfully");
+    
     history.push('/product')
   };
   return (

@@ -12,14 +12,15 @@ const Header = () => {
     <div>
       <Navbar bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+          <Navbar.Brand href="./">Navbar</Navbar.Brand>
           <Nav className="me-auto nav_bar_wrapper">
             {localStorage.getItem("user-info") ? (
               <>
-                <Link  to="/product">Product List</Link>
-                <Link to="/add">Add Product</Link>
-                <Link to="/update">Update Product</Link>
-                <Link to="/search">Search Product</Link>
+              
+                <Nav.Link href="/product">Product List</Nav.Link>
+                <Nav.Link href="/add">Add Product</Nav.Link>
+                <Nav.Link href="/update">Update</Nav.Link>
+                <Nav.Link href="/search">Search Product</Nav.Link>
 
               </>
             ) : (
